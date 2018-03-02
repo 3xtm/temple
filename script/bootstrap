@@ -8,7 +8,7 @@ set -euo pipefail
 source "$(dirname "$0")/utilities.bash"
 
 header "Fetching utilites"
-vgo install "$@" -v \
+go get "$@" -v \
   golang.org/x/vgo \
   gopkg.in/alecthomas/gometalinter.v2 \
   github.com/mitchellh/gox
