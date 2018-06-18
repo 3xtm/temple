@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 
 	kingpin "gopkg.in/alecthomas/kingpin.v2"
@@ -21,7 +22,7 @@ func main() {
 	kingpin.HelpFlag.Short('h')
 	kingpin.CommandLine.Help = "Fast and simple templating engine"
 	kingpin.CommandLine.Author("Christian Höltje")
-	kingpin.Version(version)
+	kingpin.Version(fmt.Sprintf("%v\ncommit %v built at %v", version, commit, date))
 
 	kingpin.
 		Flag("json-data", "A JSON file to use via the {{json.<foo>}} interface (Env: TEMPLE_JSON_DATA_FILE)").

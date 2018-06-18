@@ -1,0 +1,44 @@
+# This is an example goreleaser.yaml file with some sane defaults.
+# Make sure to check the documentation at http://goreleaser.com
+builds:
+- env:
+  - CGO_ENABLED=0
+  goos:
+  - linux
+  - darwin
+  - windows
+  goarch:
+    - ppc64
+    - ppc64le
+    - arm
+    - amd64
+    - "386"
+  ignore:
+    - goos: darwin
+      goarch: 386
+archive:
+  format_overrides:
+    - goos: windows
+      format: zip
+  replacements:
+    darwin: Darwin
+    linux: Linux
+    windows: Windows
+    386: i386
+    amd64: x86_64
+checksum:
+  name_template: "checksums-sha256.txt"
+snapshot:
+  name_template: "{{ .Tag }}-NEXT"
+git:
+  short_hash: true
+changelog:
+  sort: desc
+  filters:
+    # commits matching this regexp will be excluded.
+    exclude:
+    - '^docs:'
+    - '^test:'
+    - '^build:'
+    - '^travis:'
+    - '^ci:'

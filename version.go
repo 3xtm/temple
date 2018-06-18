@@ -1,3 +1,7 @@
 package main
 
-var version = "master"
+var (
+	version = "dev"
+	commit  = "none"
+	date    = "unknown"
+)
