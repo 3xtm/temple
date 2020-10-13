@@ -30,4 +30,4 @@ deploy:
   - "temple_*"
   on:
     tags: true
-    repo: docwhat/temple
+    repo: 3xtm/temple
